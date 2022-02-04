@@ -36,4 +36,4 @@ for ( var z = 0; z < BLOCKS_Z; z++ ) {
     }
 }
 ```
-![Sphere 64x64x64](https://doggyxomax.ru/images/github/sphere.jpg "Sphere 64x64x64")
+![Sphere 64x64x64](./.assets/preview.png "Sphere 64x64x64")
