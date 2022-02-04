@@ -22,8 +22,12 @@ block.SetPosition(x, y, z); // position inside grid mapped blocks
 
 ## Preview Sphere 64x64x64
 
-But this code is less: 16x16x16
+Note: current version generate 16x16x16, if you want bigger sphere, just:
+```javascript
+app.blocks.count = { x: 64, y: 64, z: 64 };
+```
 
+**Example:**
 ```javascript
 for (let z = 0; z < cz; z++) {
   for (let y = 0; y < cy; y++) {
