@@ -1,7 +1,7 @@
 # blocker-d2d
 ## Usage:
 ```javascript
-SetBlock( x, y, z, index );
+app.SetBlock(x, y, z, index);
 ```
 
 - 0 - Air
@@ -15,25 +15,30 @@ SetBlock( x, y, z, index );
 ## Block class:
 
 ```javascript
-var block = new Block();
-block.SetBlock( index );
-block.SetPosition( x, y, z ); // in map grid
+const block = CreateBlock(app.parentElement);
+block.SetBlock(index);
+block.SetPosition(x, y, z); // position inside grid mapped blocks
 ```
 
 ## Preview Sphere 64x64x64
 
+But this code is less: 16x16x16
+
 ```javascript
-for ( var z = 0; z < BLOCKS_Z; z++ ) {
-    for ( var y = 0; y < BLOCKS_Y; y++ ) {
-        for ( var x = 0; x < BLOCKS_X; x++ ) {
-            var dx = x - BLOCKS_X * 0.5;
-            var dy = y - BLOCKS_Y * 0.5;
-            var dz = z - BLOCKS_Z * 0.5;
-            var sr = ( BLOCKS_X + BLOCKS_Y + BLOCKS_Z ) / 3 * 0.5;
-            var distance = Math.sqrt( dx * dx + dy * dy + dz * dz );
-            SetBlock( x, y, z, ( distance < sr ? 1 + Math.random() * 6 >> 0 : 0 ) );
-        }
+for (let z = 0; z < cz; z++) {
+  for (let y = 0; y < cy; y++) {
+    for (let x = 0; x < cx; x++) {
+      const dx = x - cx * 0.5;
+      const dy = y - cy * 0.5;
+      const dz = z - cz * 0.5;
+      const avg = (cx + cy + cz) / 3 * 0.5;
+      const distance = Math.sqrt(dx * dx + dy * dy + dz * dz);
+      app.SetBlock(
+        x, y, z, 
+        (distance < avg ? 2 + Math.floor(Math.random() * 0) : 0)
+      );
     }
+  }
 }
 ```
 ![Sphere 64x64x64](./.assets/preview.png "Sphere 64x64x64")
